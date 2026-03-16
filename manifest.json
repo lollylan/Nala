@@ -1,0 +1,19 @@
+{
+  "name": "Nala Tracker",
+  "short_name": "Nala",
+  "description": "Tägliches Tracking für Hund Nala",
+  "start_url": "/Nala/",
+  "scope": "/Nala/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#FF8C42",
+  "background_color": "#F5F0EB",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

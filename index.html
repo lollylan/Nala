@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#FF8C42">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Nala Tracker</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Nutzer-Auswahl ===== -->
+  <div id="screen-user" class="screen">
+    <div class="user-select">
+      <div class="user-logo">🐕</div>
+      <h1>Nala Tracker</h1>
+      <p>Wer bist du?</p>
+      <div class="user-buttons">
+        <button class="btn-user" data-user="Florian">Florian</button>
+        <button class="btn-user" data-user="Eva">Eva</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Haupt-App ===== -->
+  <div id="screen-app" class="screen hidden">
+
+    <!-- Header -->
+    <header class="app-header">
+      <span class="app-title">🐕 Nala</span>
+      <button id="btn-switch-user" class="btn-chip"></button>
+    </header>
+
+    <!-- ===== Heute-Ansicht ===== -->
+    <main id="view-today" class="view">
+      <div class="date-nav">
+        <button id="btn-prev-day" class="btn-icon">◀</button>
+        <span id="display-date" class="date-label">Heute</span>
+        <button id="btn-next-day" class="btn-icon">▶</button>
+      </div>
+
+      <div class="cards">
+        <!-- Tablette -->
+        <div class="card" id="card-tablet" role="button" tabindex="0">
+          <div class="card-icon">💊</div>
+          <div class="card-body">
+            <div class="card-title">Tablette</div>
+            <div class="card-meta" id="meta-tablet"></div>
+          </div>
+          <div class="card-toggle" id="toggle-tablet"></div>
+        </div>
+
+        <!-- Futter Morgens -->
+        <div class="card" id="card-morning" role="button" tabindex="0">
+          <div class="card-icon">🌅</div>
+          <div class="card-body">
+            <div class="card-title">Futter morgens</div>
+            <div class="card-meta" id="meta-morning"></div>
+          </div>
+          <div class="card-toggle" id="toggle-morning"></div>
+        </div>
+
+        <!-- Futter Abends -->
+        <div class="card" id="card-evening" role="button" tabindex="0">
+          <div class="card-icon">🌙</div>
+          <div class="card-body">
+            <div class="card-title">Futter abends</div>
+            <div class="card-meta" id="meta-evening"></div>
+          </div>
+          <div class="card-toggle" id="toggle-evening"></div>
+        </div>
+
+        <!-- Haufen -->
+        <div class="section-header">
+          <span>💩 Haufen: <strong id="poop-count">0</strong></span>
+          <button id="btn-add-poop" class="btn-small">+ Hinzufügen</button>
+        </div>
+        <div id="poop-list" class="poop-list"></div>
+      </div>
+    </main>
+
+    <!-- ===== Monat-Ansicht ===== -->
+    <main id="view-month" class="view hidden">
+      <div class="date-nav">
+        <button id="btn-prev-month" class="btn-icon">◀</button>
+        <span id="display-month" class="date-label"></span>
+        <button id="btn-next-month" class="btn-icon">▶</button>
+      </div>
+      <div class="month-legend">
+        <span>💊 Tablette</span>
+        <span>🌅 Morgens</span>
+        <span>🌙 Abends</span>
+        <span>💩 Haufen</span>
+      </div>
+      <div id="month-grid" class="month-grid"></div>
+    </main>
+
+    <!-- ===== Statistik-Ansicht ===== -->
+    <main id="view-stats" class="view hidden">
+      <div class="date-nav">
+        <button id="btn-prev-stat-month" class="btn-icon">◀</button>
+        <span id="display-stat-month" class="date-label"></span>
+        <button id="btn-next-stat-month" class="btn-icon">▶</button>
+      </div>
+      <div id="stats-content" class="stats-content"></div>
+    </main>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-view="today">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label">Heute</span>
+      </button>
+      <button class="nav-btn" data-view="month">
+        <span class="nav-icon">📅</span>
+        <span class="nav-label">Monat</span>
+      </button>
+      <button class="nav-btn" data-view="stats">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Statistik</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- ===== Konsistenz-Modal ===== -->
+  <div id="poop-modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-sheet">
+      <h3>Konsistenz wählen</h3>
+      <div class="consistency-options">
+        <button class="btn-consistency" data-value="fest">
+          <span class="dot dot-fest"></span> Fest
+        </button>
+        <button class="btn-consistency" data-value="normal">
+          <span class="dot dot-normal"></span> Normal
+        </button>
+        <button class="btn-consistency" data-value="weich">
+          <span class="dot dot-weich"></span> Weich
+        </button>
+        <button class="btn-consistency" data-value="breiig">
+          <span class="dot dot-breiig"></span> Breiig
+        </button>
+        <button class="btn-consistency" data-value="fluessig">
+          <span class="dot dot-fluessig"></span> Flüssig
+        </button>
+      </div>
+      <button id="btn-cancel-poop" class="btn-cancel">Abbrechen</button>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>

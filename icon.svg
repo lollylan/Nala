@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#FF8C42"/>
+  <g transform="translate(256,240)" fill="#fff">
+    <!-- Paw pads -->
+    <ellipse cx="-60" cy="-80" rx="30" ry="36" transform="rotate(-15,-60,-80)"/>
+    <ellipse cx="60" cy="-80" rx="30" ry="36" transform="rotate(15,60,-80)"/>
+    <ellipse cx="-100" cy="-10" rx="25" ry="30" transform="rotate(-25,-100,-10)"/>
+    <ellipse cx="100" cy="-10" rx="25" ry="30" transform="rotate(25,100,-10)"/>
+    <!-- Main pad -->
+    <ellipse cx="0" cy="60" rx="70" ry="55"/>
+  </g>
+  <text x="256" y="420" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="72" fill="#fff">NALA</text>
+</svg>
